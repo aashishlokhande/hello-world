@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import com.rubik.provisio.decorator.BaseEntitlements;
 
 /**
- * Class to store individual user details
- *
+ * Bean class to store individual user details
  */
 public class WelfareUserInfo {
 	
@@ -18,7 +17,8 @@ public class WelfareUserInfo {
 	private double assetIncrementPercentage;
 	private boolean isSingle;
 	private double welfareEntitlement;
-	
+
+	// Overloaded constructor
 	public WelfareUserInfo(int calculateTillYear, LocalDate startDate, double income, int workTenureYear, double totalAsset, double assetIncrementPercentage, boolean isSingle){
 		this.calculateTillYear = calculateTillYear;
 		this.startDate = startDate;
@@ -82,6 +82,4 @@ public class WelfareUserInfo {
 	public void setCalculateTillYear(int calculateTillYear) {
 		this.calculateTillYear = calculateTillYear;
 	}
-
-	
 }

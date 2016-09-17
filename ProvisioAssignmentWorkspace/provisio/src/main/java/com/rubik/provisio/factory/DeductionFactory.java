@@ -8,10 +8,18 @@ import com.rubik.provisio.deduction.strategy.asset.AssetBasedDeductionBefore2020
 import com.rubik.provisio.deduction.strategy.income.IncomeDeductionsAfter2018;
 import com.rubik.provisio.deduction.strategy.income.IncomeDeductionsPriorTo2018;
 
+/**
+ * This class implements factory pattern to create deduction calculator object 
+ * without exposing the creation logic to the calling program and refer to newly 
+ * created object using a common interface IDeductionCalculator
+ */
 public class DeductionFactory {
+
+	// constraint variables
 	private static final LocalDate incomeDeductionChangeYear= LocalDate.of(2018, 1, 1);
 	private static final LocalDate assetDeductionChangeYear= LocalDate.of(2020, 1, 1);
 	
+	// method to return an object based on instrument(income/asset) and date range
 	public static IDeductionCalculator getDeductionCalculator(LocalDate startDate,boolean isForAsset){
 		IDeductionCalculator deductionCalculator;
 		if(!isForAsset){

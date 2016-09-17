@@ -34,7 +34,7 @@ public class WelfareCalculatorTest
     }
 
     /**
-     * Check if ReadInputProperties is fetching the right data from resource file
+     * Test if ReadInputProperties is fetching the right data from resource file
      */
     public void testInputReader(){
     	String propFileName = "userInput.properties";
@@ -42,12 +42,15 @@ public class WelfareCalculatorTest
     	assertEquals(3.5,welfareUser.getAssetIncrementPercentage());
     	assertEquals(5000.0,welfareUser.getIncome());
     	assertEquals(40000.00,welfareUser.getTotalAsset());
-    	assertEquals( true,welfareUser.isSingle());
+    	assertEquals(true,welfareUser.isSingle());
     	assertEquals(LocalDate.of(2015, 7, 1),welfareUser.getStartDate());
     	assertEquals(2016,welfareUser.getCalculateTillYear());
     }
     
-    public void testDeductionFor2016()
+    /**
+     * Test welfare calculation for current year
+     */
+    public void testEntitlementForCurrentYear()
     {
     	String propFileName = "userInput.properties";
     	WelfareUserInfo welfareUser = new ReadInputProperties().getWelfareUser(propFileName);
@@ -57,7 +60,10 @@ public class WelfareCalculatorTest
 		assertEquals(0.0,entitlement);
 	}
     
-    public void testDeductionFor10Years()
+    /**
+     * Test welfare calculation for 10 years 
+     */
+    public void testEntitlementFor10Years()
     {
     	String propFileName = "userInput10Years.properties";
     	WelfareUserInfo welfareUser = new ReadInputProperties().getWelfareUser(propFileName);

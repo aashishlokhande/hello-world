@@ -7,7 +7,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
+/**
+ * Utility class to read input from static properties file and
+ * convert it into WelfareUserInfo object to be used for entitlement calculations
+ */
 public class ReadInputProperties {
+
 	WelfareUserInfo welfareUser;
 	InputStream inputStream;
  
@@ -15,7 +20,6 @@ public class ReadInputProperties {
 		
 		try {
 			Properties prop = new Properties();
-			
 			
 			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
  
@@ -28,7 +32,7 @@ public class ReadInputProperties {
 				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
 			}
  
-			// populate user object with property file
+			// populate user object with property file values
 			welfareUser = new WelfareUserInfo(prop.getProperty("calculateTillYear").isEmpty()?0:Integer.parseInt(prop.getProperty("calculateTillYear")),
 												LocalDate.parse(prop.getProperty("startDate"), df),
 												Double.parseDouble(prop.getProperty("incomePerYear")),
