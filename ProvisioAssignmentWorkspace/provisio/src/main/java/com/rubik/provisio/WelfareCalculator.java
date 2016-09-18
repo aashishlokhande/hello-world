@@ -1,11 +1,12 @@
 package com.rubik.provisio;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.rubik.provisio.decorator.BaseEntitlements;
+import com.rubik.provisio.deduction.strategy.BaseEntitlements;
 import com.rubik.provisio.factory.DeductionFactory;
 import com.rubik.provisio.input.WelfareUserInfo;
 
@@ -49,8 +50,10 @@ public class WelfareCalculator {
 		for(int i = 0; i < calculateForYears; i++){
 			if(i>0){
 				// 2. Calculate total income for tenure
-				if(welfareUser.getAssetIncrementPercentage()>0)
-					welfareUser.setTotalAsset(welfareUser.getTotalAsset() + (welfareUser.getTotalAsset() * (welfareUser.getAssetIncrementPercentage() / 100)));
+				if(welfareUser.getAssetIncrementPercentage()>0){
+					double temp = welfareUser.getTotalAsset() + (welfareUser.getTotalAsset() * (welfareUser.getAssetIncrementPercentage() / 100));
+					welfareUser.setTotalAsset(new BigDecimal(temp).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue());
+				}
 				welfareUser.setWelfareEntitlement(welfareUser.getWelfareEntitlement()+getBaseEntitlement(welfareUser.isSingle()));
 			}
 			

@@ -1,4 +1,4 @@
-package com.rubik.provisio.decorator;
+package com.rubik.provisio.deduction.strategy;
 
 /**
  * Enumeration to store base rate per year depending on marital status

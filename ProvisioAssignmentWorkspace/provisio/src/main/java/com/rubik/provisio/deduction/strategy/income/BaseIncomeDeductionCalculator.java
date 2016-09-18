@@ -1,6 +1,6 @@
 package com.rubik.provisio.deduction.strategy.income;
 
-import com.rubik.provisio.decorator.IDeductionCalculator;
+import com.rubik.provisio.deduction.strategy.IDeductionCalculator;
 
 /**
  * Abstract class defining action to be taken for deductions made on income

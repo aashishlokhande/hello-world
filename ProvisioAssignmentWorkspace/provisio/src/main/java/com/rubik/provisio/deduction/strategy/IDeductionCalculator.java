@@ -1,4 +1,4 @@
-package com.rubik.provisio.decorator;
+package com.rubik.provisio.deduction.strategy;
 
 import com.rubik.provisio.input.WelfareUserInfo;
 

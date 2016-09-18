@@ -2,7 +2,7 @@ package com.rubik.provisio.input;
 
 import java.time.LocalDate;
 
-import com.rubik.provisio.decorator.BaseEntitlements;
+import com.rubik.provisio.deduction.strategy.BaseEntitlements;
 
 /**
  * Bean class to store individual user details

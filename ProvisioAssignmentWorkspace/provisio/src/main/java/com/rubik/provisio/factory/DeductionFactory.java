@@ -2,7 +2,7 @@ package com.rubik.provisio.factory;
 
 import java.time.LocalDate;
 
-import com.rubik.provisio.decorator.IDeductionCalculator;
+import com.rubik.provisio.deduction.strategy.IDeductionCalculator;
 import com.rubik.provisio.deduction.strategy.asset.AssetBasedDeductionAfter2020;
 import com.rubik.provisio.deduction.strategy.asset.AssetBasedDeductionBefore2020;
 import com.rubik.provisio.deduction.strategy.income.IncomeDeductionsAfter2018;
